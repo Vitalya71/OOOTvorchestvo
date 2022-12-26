@@ -1,0 +1,44 @@
+﻿<Page x:Class="OOOTvorchestvo.Pages.ProductList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OOOTvorchestvo.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductList">
+
+    <Grid>
+       
+        <Grid.RowDefinitions>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="15*"/>
+        </Grid.RowDefinitions>
+        <UniformGrid>
+            <TextBlock Text="Введите название продукта: " Foreground="{StaticResource AccentColor}" HorizontalAlignment="Left" Style="{StaticResource ResourceKey=TBStyle}"></TextBlock>
+            <TextBox Width="400" Margin="-65 5 15 15" TextChanged="FindProductName_TextChanged" x:Name="FindProductName"></TextBox>
+        </UniformGrid>
+        <ListView Grid.Row="1" x:Name="LVProduct" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
+           
+                <ListViewItem>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListViewItem>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <TextBlock Text="{Binding ProductName}"></TextBlock>
+                        <TextBlock Text="{Binding ProductCost}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+                
+           
+            
+            
+        </ListView>
+        
+
+    </Grid>
+</Page>
